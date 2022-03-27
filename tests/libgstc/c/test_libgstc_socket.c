@@ -224,7 +224,7 @@ GST_START_TEST (test_socket_timeout_reached)
   const gint keep_open = TRUE;
   const gchar *request = "ping";
   const gchar *expected = "pong";
-  gchar *response;
+  gchar *response = NULL;
   socket_delay = 100;
 
   ret = gstc_socket_new (address, port, keep_open, &socket);
