@@ -11,6 +11,9 @@
       "problemMatcher": [],
       "isBackground": true,
       "options": {
+        "env": {
+          "PATH": "$PATH:./gstd"
+        },
         "statusbar": {
           "backgroundColor": "statusBarItem.warningBackground",
           "label": "$(radio-tower)"
