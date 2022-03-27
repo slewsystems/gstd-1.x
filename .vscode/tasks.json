@@ -1,0 +1,102 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "HTTP API",
+      "command": "gstd --enable-http-protocol",
+      "detail": "Start GstD HTTP API",
+      "type": "shell",
+      "problemMatcher": [],
+      "isBackground": true,
+      "options": {
+        "statusbar": {
+          "backgroundColor": "statusBarItem.warningBackground",
+          "label": "$(radio-tower)"
+        }
+      }
+    },
+    {
+      "label": "Kill GstD",
+      "detail": "Kill all GstD processes running",
+      "command": "gstd -k",
+      "type": "shell",
+      "options": {
+        "statusbar": {
+          "backgroundColor": "statusBarItem.warningBackground",
+          "label": "$(close-all)"
+        }
+      }
+    },
+    {
+      "label": "Configure",
+      "detail": "Autogen and configure for compilation",
+      "command": "./autogen.sh && ./configure",
+      "type": "shell",
+      "options": {
+        "statusbar": {
+          "backgroundColor": "statusBarItem.warningBackground",
+          "label": "$(settings)"
+        }
+      }
+    },
+    {
+      "label": "Build",
+      "detail": "Compile GstD",
+      "command": "make",
+      "type": "shell",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "options": {
+        "statusbar": {
+          "backgroundColor": "statusBarItem.warningBackground",
+          "label": "$(tools)"
+        }
+      }
+    },
+    {
+      "label": "Test",
+      "detail": "Run GstD test suite",
+      "command": "make check",
+      "type": "shell",
+      "dependsOn": ["Build"],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "options": {
+        "statusbar": {
+          "backgroundColor": "statusBarItem.warningBackground",
+          "label": "$(beaker)"
+        }
+      }
+    },
+    {
+      "label": "Install",
+      "detail": "Install GstD to system",
+      "command": "make install",
+      "type": "shell",
+      "options": {
+        "statusbar": {
+          "backgroundColor": "statusBarItem.warningBackground",
+          "label": "$(desktop-download)"
+        }
+      }
+    },
+    {
+      "label": "Clean",
+      "detail": "Clean up compiled GstD artifacts",
+      "command": "make clean",
+      "type": "shell",
+      "options": {
+        "statusbar": {
+          "backgroundColor": "statusBarItem.errorBackground",
+          "label": "$(trash)"
+        }
+      }
+    }
+  ]
+}
